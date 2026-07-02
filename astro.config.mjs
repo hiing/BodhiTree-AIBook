@@ -16,6 +16,21 @@ export default defineConfig({
 				root: { label: '简体中文', lang: 'zh-CN' },
 			},
 			defaultLocale: 'root',
+			head: [
+				{
+					tag: 'script',
+					content: `
+						try {
+							if (localStorage.getItem('starlight-theme') === null) {
+								localStorage.setItem('starlight-theme', 'light');
+							}
+							if (localStorage.getItem('starlight-theme') === 'light') {
+								document.documentElement.dataset.theme = 'light';
+							}
+						} catch {}
+					`,
+				},
+			],
 			sidebar: [
 				{ label: '首页', slug: 'index' },
 				{ label: '关于本书', slug: 'about' },
