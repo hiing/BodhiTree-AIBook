@@ -1,0 +1,100 @@
+/* ===== 檀木暖棕色阶（primary，以 #A0826D 为 500） ===== */
+:root {
+  --sl-color-primary-50:  #f6f1ec;
+  --sl-color-primary-100: #e9ddd0;
+  --sl-color-primary-200: #d6bfa8;
+  --sl-color-primary-300: #c4a27c;
+  --sl-color-primary-400: #b2926f;
+  --sl-color-primary-500: #a0826d;   /* 檀木暖棕 主色 */
+  --sl-color-primary-600: #8c6f5b;
+  --sl-color-primary-700: #735848;
+  --sl-color-primary-800: #5a4438;
+  --sl-color-primary-900: #433228;
+  --sl-color-primary-950: #2a2018;
+
+  /* 菩提翠绿作 accent（极弱） */
+  --sl-color-accent-600: #4b7055;
+  --sl-color-accent-500: #5a8266;
+  --sl-color-accent-400: #6e9580;
+
+  /* 浅色模式表面与文字 */
+  --sl-color-bg:           #faf7f0;   /* 宣纸暖白 */
+  --sl-color-bg-sidebar:   #f7f2e9;
+  --sl-color-bg-nav:       #faf7f0;
+  --sl-color-bg-footer:    #f2ede3;
+  --sl-color-text:         #1c1a17;   /* 黛黑水墨 */
+  --sl-color-text-muted:   #7a7267;   /* 砚石灰 */
+  --sl-color-text-invert:  #faf7f0;
+  --sl-color-border:       #e6e1d8;   /* 竹纸灰 */
+
+  /* 字体：楷体优先 */
+  --sl-font: 'Kaiti SC', 'STKaiti', 'Xingkai SC', 'Kaiti', 'SimSun', Georgia, serif;
+  --sl-font-mono: 'STKaiti', 'SimSun', serif;
+
+  /* 印章红独立变量，不污染 primary 色阶 */
+  --seal-red: #a62b2b;
+}
+
+/* 深色模式 */
+:root[data-theme='dark'] {
+  --sl-color-bg:           #1c1a17;   /* 黛黑 */
+  --sl-color-bg-sidebar:   #211e1a;
+  --sl-color-bg-nav:       #1c1a17;
+  --sl-color-bg-footer:    #181613;
+  --sl-color-text:         #e0dcd3;   /* 象牙瓦灰 */
+  --sl-color-text-muted:   #9a9085;
+  --sl-color-border:       #3a352e;
+}
+
+/* ===== 排版：呼吸感与留白 ===== */
+body {
+  font-family: var(--sl-font);
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+  font-size: 1.0625rem;
+}
+
+/* 正文段落不首行缩进，靠段间距留白 */
+main p {
+  margin-block: 1.4em 1.4em;
+}
+
+/* 阅读容器收窄，营造空灵 */
+.main-frame {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+/* 章节正文区域进一步收窄 */
+article[data-page] > .markdown {
+  max-width: 42rem;
+}
+
+/* 链接：檀木色而非刺眼蓝 */
+main a {
+  color: var(--sl-color-primary-700);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sl-color-border);
+}
+main a:hover {
+  color: var(--sl-color-primary-500);
+  border-bottom-color: var(--sl-color-primary-500);
+}
+
+/* 去圆角药丸化，保持方正 */
+button,
+.sl-link-button {
+  border-radius: 2px !important;
+}
+
+/* 禅意提示框（Starlight callout） */
+.callout {
+  background: #f4efe6;
+  border-left: 3px solid var(--sl-color-accent-600);
+  border-radius: 2px;
+}
+
+/* 侧边栏激活项：檀木色而非默认蓝 */
+.sidebar-item[data-current-page] {
+  color: var(--sl-color-primary-600);
+}
