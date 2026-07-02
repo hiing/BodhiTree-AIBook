@@ -27,9 +27,11 @@
   --sl-color-text-invert:  #faf7f0;
   --sl-color-border:       #e6e1d8;   /* 竹纸灰 */
 
-  /* 字体：楷体优先 */
-  --sl-font: 'Kaiti SC', 'STKaiti', 'Xingkai SC', 'Kaiti', 'SimSun', Georgia, serif;
-  --sl-font-mono: 'STKaiti', 'SimSun', serif;
+  /* 字体：正文宋体/明体，标题保留楷体气质 */
+  --font-serif-reading: 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
+  --font-kai-display: 'Kaiti SC', 'STKaiti', 'Xingkai SC', 'KaiTi', 'SimKai', serif;
+  --sl-font: var(--font-serif-reading);
+  --sl-font-mono: 'STSong', 'SimSun', serif;
 
   /* 印章红独立变量，不污染 primary 色阶 */
   --seal-red: #a62b2b;
@@ -63,7 +65,7 @@
 body {
   font-family: var(--sl-font);
   line-height: 2.0;
-  letter-spacing: 0.03em;
+  letter-spacing: 0;
   font-size: 1.125rem;            /* 18px，中文长篇阅读舒适字号 */
 }
 
@@ -77,8 +79,14 @@ main p {
 /* 章节标题 */
 article[data-page] h1 {
   margin-block-start: 0;
-  letter-spacing: 0.08em;
+  font-family: var(--font-kai-display);
+  letter-spacing: 0;
   font-size: 1.75rem;
+}
+
+.site-title,
+.sidebar-content {
+  font-family: var(--font-kai-display);
 }
 
 /* 隐藏右侧 TOC 栏，给正文让出全部空间 */
