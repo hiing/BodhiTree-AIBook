@@ -47,7 +47,7 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'chapters/vol3' } }],
 				},
 				{
-					label: '卷四 · 法将与精舍',
+					label: '卷四 · 回宫度亲与僧团秩序',
 					items: [{ autogenerate: { directory: 'chapters/vol4' } }],
 				},
 				{

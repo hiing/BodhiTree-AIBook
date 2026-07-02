@@ -52,14 +52,14 @@
 
 /* 强制覆盖 Starlight 默认宽度变量，用 !important 防止被覆盖 */
 :root {
-  --sl-content-width: 56rem !important;
+  --sl-content-width: 52rem !important;
   --sl-sidebar-width: 15rem !important;
   --sl-mobile-sidebar-width: 320px !important;
 }
 
 /* 直接覆盖容器最大宽度，确保生效 */
 .sl-container {
-  max-width: 56rem !important;
+  max-width: 52rem !important;
 }
 
 body {
@@ -85,8 +85,12 @@ article[data-page] h1 {
 }
 
 .site-title,
-.sidebar-content {
+.sl-markdown-content h1 {
   font-family: var(--font-kai-display);
+}
+
+.sidebar-content {
+  font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 /* 隐藏右侧 TOC 栏，给正文让出全部空间 */
