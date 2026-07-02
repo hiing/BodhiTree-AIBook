@@ -55,7 +55,7 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'chapters/vol5' } }],
 				},
 				{
-					label: '卷六 · 论辩与分裂',
+					label: '卷六 · 入灭与结集',
 					items: [{ autogenerate: { directory: 'chapters/vol6' } }],
 				},
 			],
