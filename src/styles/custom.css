@@ -46,28 +46,50 @@
   --sl-color-border:       #3a352e;
 }
 
-/* ===== 排版：呼吸感与留白 ===== */
+/* ===== 排版：阅读优先 ===== */
+
+/* 强制覆盖 Starlight 默认宽度变量，用 !important 防止被覆盖 */
+:root {
+  --sl-content-width: 56rem !important;
+  --sl-sidebar-width: 15rem !important;
+  --sl-mobile-sidebar-width: 320px !important;
+}
+
+/* 直接覆盖容器最大宽度，确保生效 */
+.sl-container {
+  max-width: 56rem !important;
+}
+
 body {
   font-family: var(--sl-font);
-  line-height: 1.9;
-  letter-spacing: 0.05em;
-  font-size: 1.0625rem;
+  line-height: 2.0;
+  letter-spacing: 0.03em;
+  font-size: 1.125rem;            /* 18px，中文长篇阅读舒适字号 */
 }
 
-/* 正文段落不首行缩进，靠段间距留白 */
+/* 正文段落：段间距留白，不首行缩进，两端对齐 */
 main p {
-  margin-block: 1.4em 1.4em;
+  margin-block: 1.6em 1.6em;
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
-/* 阅读容器收窄，营造空灵 */
-.main-frame {
-  max-width: 44rem;
-  margin-inline: auto;
+/* 章节标题 */
+article[data-page] h1 {
+  margin-block-start: 0;
+  letter-spacing: 0.08em;
+  font-size: 1.75rem;
 }
 
-/* 章节正文区域进一步收窄 */
-article[data-page] > .markdown {
-  max-width: 42rem;
+/* 隐藏右侧 TOC 栏，给正文让出全部空间 */
+@media (width >= 72rem) {
+  .right-sidebar-container,
+  .right-sidebar {
+    display: none !important;
+  }
+  .main-pane {
+    width: 100% !important;
+  }
 }
 
 /* 链接：檀木色而非刺眼蓝 */

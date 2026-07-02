@@ -44,13 +44,13 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'chapters/vol6' } }],
 				},
 			],
-			customCss: ['./src/styles/custom.css'],
-			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/hiing/BodhiTree-AIBook' },
-			],
-			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
-			pagination: true,
-			lastUpdated: false,
+		customCss: ['./src/styles/custom.css'],
+		social: [
+			{ icon: 'github', label: 'GitHub', href: 'https://github.com/hiing/BodhiTree-AIBook' },
+		],
+		tableOfContents: false,
+		pagination: true,
+		lastUpdated: false,
 		}),
 	],
 });
