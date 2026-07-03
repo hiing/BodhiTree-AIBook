@@ -4,11 +4,13 @@
 
 > 不渲染神迹奇观，不回避人性幽暗，以克制的笔触呈现一个"人"如何成为"觉者"。
 
-一部由 AI 全自动创作的长篇佛陀传记，77 章，约 28 万字。跟随悉达多·乔达摩从迦毗罗卫的宫墙出发，走过苦行林的荆棘、菩提树下的长夜、鹿野苑的初转法轮，直至拘尸那揭罗娑罗双树间的最终示寂。
+一部由 AI 辅助创作并整理发布的长篇佛陀传记，77 章，约 28 万字。跟随悉达多·乔达摩从迦毗罗卫的宫墙出发，走过苦行林的荆棘、菩提树下的长夜、鹿野苑的初转法轮，直至拘尸那揭罗娑罗双树间的最终示寂。
+
+当前站点已迁移为 VitePress 文档站，正文以 Markdown 形式维护在 `docs/` 目录中。
 
 ## 技术栈
 
-- [Astro](https://astro.build) + [Starlight](https://starlight.astro.build) — 静态文档站框架
+- [VitePress](https://vitepress.dev) - 静态文档站框架
 - 檀木暖棕禅意主题，楷体排版，宣纸暖白底色
 - 部署于 [EdgeOne Pages](https://edgeone.ai)
 
@@ -16,10 +18,19 @@
 
 ```bash
 npm install
-npm run dev      # 开发预览 → http://localhost:4321
-npm run build    # 构建到 dist/
+npm run dev      # 开发预览 → http://localhost:5173
+npm run build    # 构建到 docs/.vitepress/dist/
 npm run preview  # 预览构建结果
 ```
+
+## 验证
+
+```bash
+npm run verify:vitepress
+npm run build
+```
+
+`verify:vitepress` 会检查 VitePress 配置、依赖、文档数量和 Starlight 组件残留；`build` 会执行正式静态构建。
 
 ## 章节结构
 
@@ -35,12 +46,27 @@ npm run preview  # 预览构建结果
 ## 目录说明
 
 ```
-├── src/content/docs/chapters/  # 77 章正文（按卷分 vol1~vol6）
-├── src/styles/custom.css        # 檀木禅意主题
-├── scripts/normalize_chapters.py # 章标题归一化脚本
-├── raw-novel/                   # 原始文稿存档
-└── DESIGN.md                    # 设计规范
+├── docs/                         # VitePress 文档源
+│   ├── .vitepress/config.mts      # 站点配置与侧边栏
+│   ├── .vitepress/theme/          # 檀木禅意主题
+│   ├── public/                    # favicon 与站点 logo
+│   └── chapters/                  # 77 章正文（按卷分 vol1~vol6）
+├── scripts/migrate-to-vitepress.mjs # 从旧 Starlight 内容生成 VitePress 文档
+├── scripts/verify-vitepress-migration.mjs # VitePress 迁移完整性检查
+├── scripts/normalize_chapters.py  # 章标题归一化脚本
+├── raw-novel/                     # 原始文稿存档
+└── DESIGN.md                      # 设计规范
 ```
+
+## 部署
+
+生产构建产物位于：
+
+```text
+docs/.vitepress/dist/
+```
+
+EdgeOne Pages 或其他静态托管平台可将该目录作为发布目录。
 
 ## 版本与创作说明
 
