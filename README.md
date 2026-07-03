@@ -30,7 +30,7 @@ npm run verify:vitepress
 npm run build
 ```
 
-`verify:vitepress` 会检查 VitePress 配置、依赖、文档数量和 Starlight 组件残留；`build` 会执行正式静态构建。
+`verify:vitepress` 会检查 VitePress 配置、依赖、文档数量和旧框架组件残留；`build` 会执行正式静态构建。
 
 ## 章节结构
 
@@ -51,9 +51,8 @@ npm run build
 │   ├── .vitepress/theme/          # 檀木禅意主题
 │   ├── public/                    # favicon 与站点 logo
 │   └── chapters/                  # 77 章正文（按卷分 vol1~vol6）
-├── scripts/migrate-to-vitepress.mjs # 从旧 Starlight 内容生成 VitePress 文档
 ├── scripts/verify-vitepress-migration.mjs # VitePress 迁移完整性检查
-├── scripts/normalize_chapters.py  # 章标题归一化脚本
+├── scripts/normalize_chapters.py  # 章标题归一化与 Markdown 生成脚本
 ├── raw-novel/                     # 原始文稿存档
 └── DESIGN.md                      # 设计规范
 ```

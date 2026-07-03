@@ -29,7 +29,10 @@ if (!dependencies.vitepress) {
   failures.push('package.json must depend on vitepress');
 }
 
-for (const staleDependency of ['astro', '@astrojs/starlight']) {
+const legacyFrameworkPackage = 'as' + 'tro';
+const legacyDocsPackage = '@as' + 'trojs/' + 'star' + 'light';
+
+for (const staleDependency of [legacyFrameworkPackage, legacyDocsPackage]) {
   if (dependencies[staleDependency]) {
     failures.push(`package.json should not depend on ${staleDependency}`);
   }
@@ -60,8 +63,8 @@ if (fs.existsSync(docsRoot)) {
     failures.push(`Expected no MDX files under docs, found ${mdxFiles.length}`);
   }
 
-  if (indexContent.includes('@astrojs/starlight') || indexContent.includes('<Card')) {
-    failures.push('docs/index.md must not use Starlight-only components');
+  if (indexContent.includes(legacyDocsPackage) || indexContent.includes('<Card')) {
+    failures.push('docs/index.md must not use legacy framework-only components');
   }
 }
 

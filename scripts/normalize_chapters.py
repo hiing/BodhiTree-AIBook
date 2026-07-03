@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-章标题归一化 + Starlight mdx 生成脚本
+章标题归一化 + VitePress Markdown 生成脚本
 
 两阶段执行：
   1. python normalize_chapters.py            → 生成 title_map.json 审核文件
-  2. python normalize_chapters.py --write    → 按 title_map.json 生成 77 个 mdx
+  2. python normalize_chapters.py --write    → 按 title_map.json 生成 77 个 md
 
 策略：内容优先 + 大纲补全 + 人工审核
   - 有标题的章节 → 采信文件现有标题
@@ -21,7 +21,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SCRIPT_DIR.parent
 NOVEL_DIR = Path(r"C:\Users\away\Desktop\ainovel-cli_0.5.2_Windows_x86_64\output\novel")
 SRC_DIR = NOVEL_DIR / "chapters"
-DEST_DIR = PROJECT_DIR / "src" / "content" / "docs" / "chapters"
+DEST_DIR = PROJECT_DIR / "docs" / "chapters"
 
 # ===== 中文数字转换 =====
 def num2hanzi(n):
@@ -104,7 +104,7 @@ pending_count = sum(1 for v in title_map.values() if v["source"] == "outline-pen
 print(f"[1/2] title_map.json 已生成 -> {out}")
 print(f"      有标题(采信文件): {file_count} 章 | 无标题(待审核): {pending_count} 章")
 
-# ===== 6. 生成 mdx（仅在 --write 模式执行）=====
+# ===== 6. 生成 Markdown（仅在 --write 模式执行）=====
 if "--write" in sys.argv:
     # 如果 title_map.json 已存在（人工审核后的版本），优先读取它
     reviewed = SCRIPT_DIR / "title_map.json"
@@ -133,12 +133,13 @@ if "--write" in sys.argv:
             f'title: 第{cn}章 {chosen_title}\n'
             f'description: "{desc}"\n'
             "---\n\n"
+            f"# 第{cn}章 {chosen_title}\n\n"
         )
 
-        target = DEST_DIR / VOL_DIR[d["vol"]] / f"{i:02d}.mdx"
+        target = DEST_DIR / VOL_DIR[d["vol"]] / f"{i:02d}.md"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(fm + body, encoding="utf-8")
 
-    print(f"[2/2] 已生成 77 个 mdx -> {DEST_DIR}")
+    print(f"[2/2] 已生成 77 个 md -> {DEST_DIR}")
 else:
-    print("[2/2] 跳过 mdx 生成（加 --write 参数执行最终写入）")
+    print("[2/2] 跳过 Markdown 生成（加 --write 参数执行最终写入）")

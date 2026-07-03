@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect x="4" y="4" width="56" height="56" rx="4" fill="#A62B2B" stroke="#A62B2B" stroke-width="2"/>
-  <text x="32" y="28" text-anchor="middle" dominant-baseline="central"
-        font-family="Kaiti SC, STKaiti, SimSun, serif" font-size="22" font-weight="bold"
-        fill="#FAF7F0" letter-spacing="2">菩</text>
-  <text x="32" y="48" text-anchor="middle" dominant-baseline="central"
-        font-family="Kaiti SC, STKaiti, SimSun, serif" font-size="22" font-weight="bold"
-        fill="#FAF7F0" letter-spacing="2">提</text>
-</svg>
