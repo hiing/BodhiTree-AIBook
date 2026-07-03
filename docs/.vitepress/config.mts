@@ -57,7 +57,7 @@ export default defineConfig({
         async: '',
         defer: '',
         'data-website-id': '1606d39a-d534-477e-b082-60f9f2bc8cae',
-        src: 'http://umami.hiing.net/script.js'
+        src: 'https://umami.hiing.net/script.js'
       }]
 ],
   themeConfig: {
