@@ -52,8 +52,14 @@ export default defineConfig({
   lastUpdated: false,
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
-<script defer src="http://umami.hiing.net/script.js" data-website-id="1606d39a-d534-477e-b082-60f9f2bc8cae"></script>
-  ],
+      'script',
+      {
+        async: '',
+        defer: '',
+        'data-website-id': '1606d39a-d534-477e-b082-60f9f2bc8cae',
+        src: 'http://umami.hiing.net/script.js' // 例如 https://analytics.example.com/script.js
+      }
+],
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: '菩提树下',
