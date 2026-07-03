@@ -52,7 +52,7 @@ export default defineConfig({
   lastUpdated: false,
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
-      'script',
+    [  'script',
       {
         async: '',
         defer: '',
